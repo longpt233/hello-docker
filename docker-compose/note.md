@@ -47,3 +47,27 @@ or
 > - Environment file
 > - Dockerfile
 > - Variable is not defined
+
+
+# 5. Secure
+
+
+- limit resource 
+```
+version: "3.8"
+services:
+  redis:
+    image: redis:alpine
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 50M
+        reservations:
+          cpus: '0.25'
+          memory: 20M
+```
+
+- read-only mount 
+
+> more infor in service-sample
